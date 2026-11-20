@@ -1,0 +1,349 @@
+/* =========================================================
+   Aurora Botânica — Landing page (empresa fictícia)
+   ========================================================= */
+
+:root {
+  --cream: #faf6f1;
+  --sand: #f1e7dc;
+  --blush: #e9c9bf;
+  --rose: #c9877a;
+  --rose-dark: #a8665a;
+  --sage: #8fa58b;
+  --sage-dark: #5f7a5c;
+  --ink: #2e2a27;
+  --muted: #7a716b;
+  --white: #ffffff;
+  --radius: 18px;
+  --shadow: 0 12px 40px rgba(46, 42, 39, 0.08);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.container { width: min(1140px, 92%); margin: 0 auto; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.1; }
+h2 { font-size: clamp(2rem, 4vw, 2.9rem); margin-bottom: 16px; }
+.section-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
+.section-head p { color: var(--muted); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600; font-size: 0.95rem;
+  border: none; cursor: pointer;
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.btn-primary { background: var(--ink); color: var(--white); }
+.btn-primary:hover { background: var(--rose-dark); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--white); }
+
+/* ---------- Header ---------- */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 246, 241, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(46, 42, 39, 0.06);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.logo { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; letter-spacing: .02em; }
+.logo span { color: var(--rose); }
+.nav-links { display: flex; gap: 34px; list-style: none; font-size: 0.92rem; }
+.nav-links a { position: relative; color: var(--muted); transition: color .2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-cta { padding: 10px 22px; font-size: 0.88rem; }
+
+/* ---------- Hero ---------- */
+.hero { padding: 80px 0 100px; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center; }
+.hero h1 { font-size: clamp(2.8rem, 6vw, 4.6rem); margin-bottom: 22px; }
+.hero h1 em { color: var(--rose); font-style: italic; }
+.hero p.lead { font-size: 1.1rem; color: var(--muted); max-width: 480px; margin-bottom: 34px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 40px; margin-top: 48px; }
+.hero-stats strong { font-family: var(--serif); font-size: 2rem; display: block; }
+.hero-stats span { font-size: .85rem; color: var(--muted); }
+
+.hero-visual { position: relative; height: 520px; }
+.blob {
+  position: absolute; inset: 30px 0 0 40px;
+  background: radial-gradient(circle at 30% 30%, var(--blush), var(--sand) 70%);
+  border-radius: 46% 54% 42% 58% / 52% 40% 60% 48%;
+  animation: morph 12s ease-in-out infinite;
+}
+@keyframes morph {
+  50% { border-radius: 58% 42% 55% 45% / 42% 58% 42% 58%; }
+}
+/* Frascos desenhados em CSS */
+.bottle {
+  position: absolute; bottom: 70px;
+  border-radius: 22px 22px 16px 16px;
+  box-shadow: var(--shadow);
+  display: flex; align-items: center; justify-content: center;
+}
+.bottle::before { /* tampa */
+  content: ""; position: absolute; top: -34px; left: 50%; transform: translateX(-50%);
+  width: 44%; height: 36px; border-radius: 8px 8px 4px 4px; background: var(--ink);
+}
+.bottle .label {
+  font-family: var(--serif); font-size: .95rem; color: var(--ink);
+  background: rgba(255,255,255,.75); padding: 10px 12px; border-radius: 8px;
+  text-align: center; line-height: 1.2;
+}
+.bottle-1 { left: 70px; width: 130px; height: 250px; background: linear-gradient(160deg, #f6ddd5, #d9a597); }
+.bottle-2 { left: 220px; width: 150px; height: 320px; background: linear-gradient(160deg, #e3ead9, #9fb59a); z-index: 2; }
+.bottle-3 { left: 390px; width: 110px; height: 200px; background: linear-gradient(160deg, #fbefe2, #e5c6a5); }
+.leaf {
+  position: absolute; width: 90px; height: 150px; background: var(--sage);
+  border-radius: 0 100% 0 100%; opacity: .55;
+}
+.leaf-1 { top: 40px; right: 20px; transform: rotate(25deg); }
+.leaf-2 { bottom: 20px; left: 10px; transform: rotate(-40deg); width: 70px; height: 120px; }
+
+/* ---------- Faixa de benefícios ---------- */
+.strip { background: var(--ink); color: var(--cream); padding: 22px 0; }
+.strip ul { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 16px; list-style: none; font-size: .9rem; letter-spacing: .04em; }
+.strip li::before { content: "✦"; color: var(--blush); margin-right: 10px; }
+
+/* ---------- Produtos ---------- */
+.section { padding: 110px 0; }
+.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.product {
+  background: var(--white); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); transition: transform .3s ease;
+}
+.product:hover { transform: translateY(-6px); }
+.product-img {
+  height: 230px; position: relative; display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 26px;
+}
+.product-img .mini {
+  width: 70px; height: 130px; border-radius: 16px 16px 12px 12px; position: relative;
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+.product-img .mini::before {
+  content: ""; position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+  width: 50%; height: 22px; border-radius: 5px; background: var(--ink);
+}
+.p1 .product-img { background: #f6e4dd; } .p1 .mini { background: linear-gradient(160deg,#fbe9e3,#d9a597); }
+.p2 .product-img { background: #e6ede2; } .p2 .mini { background: linear-gradient(160deg,#eef3ea,#9fb59a); }
+.p3 .product-img { background: #f7eee3; } .p3 .mini { background: linear-gradient(160deg,#fff5ea,#e5c6a5); height: 90px; width: 90px; border-radius: 50%; }
+.p3 .mini::before { top: -14px; width: 70%; height: 16px; }
+.p4 .product-img { background: #ece6ef; } .p4 .mini { background: linear-gradient(160deg,#f5f0f7,#b7a3c0); }
+.tag {
+  position: absolute; top: 16px; left: 16px; background: var(--white);
+  font-size: .72rem; font-weight: 600; padding: 5px 12px; border-radius: 999px; letter-spacing: .04em;
+}
+.product-body { padding: 22px; }
+.product-body h3 { font-size: 1.4rem; margin-bottom: 6px; }
+.product-body p { font-size: .88rem; color: var(--muted); margin-bottom: 16px; }
+.product-foot { display: flex; justify-content: space-between; align-items: center; }
+.price { font-weight: 700; font-size: 1.1rem; }
+.add {
+  width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--sand); font-size: 1.3rem; transition: background .2s, color .2s;
+}
+.add:hover { background: var(--ink); color: var(--white); }
+
+/* ---------- Sobre / Ingredientes ---------- */
+.about { background: var(--sand); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+.about-visual {
+  height: 440px; border-radius: 200px 200px var(--radius) var(--radius);
+  background:
+    radial-gradient(circle at 70% 25%, rgba(255,255,255,.6) 0 60px, transparent 61px),
+    linear-gradient(170deg, var(--sage) 0%, var(--sage-dark) 100%);
+  position: relative; overflow: hidden;
+}
+.about-visual::after {
+  content: "100% vegan · cruelty free · feito em Portugal";
+  position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+  background: var(--cream); padding: 10px 20px; border-radius: 999px;
+  font-size: .8rem; font-weight: 600; white-space: nowrap;
+}
+.about p { color: var(--muted); margin-bottom: 18px; }
+.features { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 30px; }
+.feature { background: var(--cream); padding: 22px; border-radius: 14px; }
+.feature .icon { font-size: 1.5rem; margin-bottom: 8px; }
+.feature h4 { font-size: 1rem; margin-bottom: 4px; }
+.feature p { font-size: .85rem; margin: 0; }
+
+/* ---------- Rituais ---------- */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; counter-reset: step; }
+.step {
+  padding: 36px 30px; border-radius: var(--radius); background: var(--white);
+  box-shadow: var(--shadow); position: relative;
+}
+.step::before {
+  counter-increment: step; content: "0" counter(step);
+  font-family: var(--serif); font-size: 3.2rem; color: var(--blush); line-height: 1;
+  display: block; margin-bottom: 14px;
+}
+.step h3 { font-size: 1.5rem; margin-bottom: 8px; }
+.step p { color: var(--muted); font-size: .92rem; }
+
+/* ---------- Suporte 24h (secção) ---------- */
+.support-banner {
+  background: linear-gradient(120deg, var(--rose) 0%, var(--rose-dark) 100%);
+  color: var(--white); border-radius: 28px; padding: 64px;
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;
+}
+.support-banner h2 { color: var(--white); }
+.support-banner p { opacity: .9; }
+.support-banner .btn-primary { background: var(--white); color: var(--ink); }
+.support-banner .btn-primary:hover { background: var(--ink); color: var(--white); }
+.support-list { list-style: none; display: grid; gap: 14px; }
+.support-list li {
+  background: rgba(255,255,255,.14); padding: 14px 18px; border-radius: 12px; font-size: .92rem;
+}
+
+/* ---------- Newsletter ---------- */
+.newsletter { text-align: center; }
+.newsletter form { display: flex; gap: 12px; max-width: 480px; margin: 30px auto 0; }
+.newsletter input {
+  flex: 1; padding: 14px 22px; border-radius: 999px; border: 1.5px solid #ddd2c6;
+  background: var(--white); font: inherit; outline: none;
+}
+.newsletter input:focus { border-color: var(--rose); }
+.form-msg { margin-top: 14px; font-size: .9rem; color: var(--sage-dark); min-height: 1.4em; }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--ink); color: #cfc6bf; padding: 60px 0 30px; font-size: .9rem; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer .logo { color: var(--cream); margin-bottom: 12px; display: inline-block; }
+.footer h5 { color: var(--cream); font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
+.footer ul { list-style: none; display: grid; gap: 8px; }
+.footer a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: .8rem; }
+
+/* =========================================================
+   Widget de chat — Suporte 24h (n8n)
+   ========================================================= */
+.chat-launcher {
+  position: fixed; right: 26px; bottom: 26px; z-index: 100;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--ink); color: var(--white);
+  padding: 14px 22px 14px 16px; border-radius: 999px; border: none; cursor: pointer;
+  box-shadow: 0 14px 34px rgba(46,42,39,.3); font: 600 .92rem var(--sans);
+  transition: transform .2s ease;
+}
+.chat-launcher:hover { transform: translateY(-3px); }
+.chat-launcher .dot {
+  width: 34px; height: 34px; border-radius: 50%; background: var(--rose);
+  display: grid; place-items: center; font-size: 1rem; position: relative;
+}
+.chat-launcher .dot::after {
+  content: ""; position: absolute; right: 0; bottom: 0; width: 10px; height: 10px;
+  border-radius: 50%; background: #5fd38a; border: 2px solid var(--ink);
+}
+
+.chat-window {
+  position: fixed; right: 26px; bottom: 100px; z-index: 101;
+  width: 370px; max-width: calc(100vw - 32px); height: 540px; max-height: calc(100vh - 130px);
+  background: var(--white); border-radius: 22px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(46,42,39,.25);
+  display: flex; flex-direction: column;
+  opacity: 0; transform: translateY(20px) scale(.97); pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.chat-window.open { opacity: 1; transform: none; pointer-events: auto; }
+
+.chat-header {
+  background: linear-gradient(120deg, var(--rose) 0%, var(--rose-dark) 100%);
+  color: var(--white); padding: 18px 20px; display: flex; align-items: center; gap: 12px;
+}
+.chat-avatar {
+  width: 42px; height: 42px; border-radius: 50%; background: var(--cream); color: var(--rose-dark);
+  display: grid; place-items: center; font-family: var(--serif); font-weight: 700; font-size: 1.2rem;
+}
+.chat-header h4 { font-size: 1rem; }
+.chat-header small { opacity: .85; font-size: .78rem; display: flex; align-items: center; gap: 6px; }
+.chat-header small::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #5fd38a; }
+.chat-close {
+  margin-left: auto; background: rgba(255,255,255,.2); color: var(--white); border: none;
+  width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1.1rem;
+}
+
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px;
+  background: var(--cream);
+}
+.msg {
+  max-width: 82%; padding: 11px 15px; border-radius: 16px; font-size: .9rem; line-height: 1.45;
+  white-space: pre-wrap; word-wrap: break-word; animation: pop .2s ease;
+}
+@keyframes pop { from { opacity: 0; transform: translateY(6px); } }
+.msg.bot { background: var(--white); align-self: flex-start; border-bottom-left-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.msg.user { background: var(--ink); color: var(--white); align-self: flex-end; border-bottom-right-radius: 4px; }
+.msg.error { background: #fbe6e3; color: #8a3b2f; }
+
+.typing { display: inline-flex; gap: 4px; padding: 14px 16px; }
+.typing span { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: blink 1.2s infinite; }
+.typing span:nth-child(2) { animation-delay: .2s; }
+.typing span:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+
+.quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 20px 12px; background: var(--cream); }
+.quick-replies button {
+  border: 1.5px solid var(--blush); background: var(--white); color: var(--rose-dark);
+  padding: 7px 13px; border-radius: 999px; font: 500 .8rem var(--sans); cursor: pointer;
+}
+.quick-replies button:hover { background: var(--blush); color: var(--ink); }
+
+.chat-form { display: flex; gap: 8px; padding: 14px; border-top: 1px solid #efe6dc; background: var(--white); }
+.chat-form input {
+  flex: 1; border: 1.5px solid #e8ddd2; border-radius: 999px; padding: 11px 16px;
+  font: inherit; font-size: .9rem; outline: none;
+}
+.chat-form input:focus { border-color: var(--rose); }
+.chat-form button {
+  width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--rose); color: var(--white); font-size: 1.1rem; transition: background .2s;
+}
+.chat-form button:hover { background: var(--rose-dark); }
+.chat-form button:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 980px) {
+  .hero-grid, .about-grid, .support-banner { grid-template-columns: 1fr; }
+  .hero-visual { height: 420px; max-width: 520px; margin: 0 auto; width: 100%; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .support-banner { padding: 44px 30px; }
+}
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .hero { padding-top: 50px; }
+  .hero-visual { transform: scale(.75); transform-origin: top left; height: 340px; }
+  .products-grid { grid-template-columns: 1fr; }
+  .features { grid-template-columns: 1fr; }
+  .newsletter form { flex-direction: column; }
+  .chat-window { right: 16px; bottom: 90px; }
+  .chat-launcher { right: 16px; bottom: 16px; }
+  .chat-launcher .txt { display: none; }
+  .chat-launcher { padding: 12px; }
+}
